@@ -1,0 +1,242 @@
+/*网站头部和底部的公共样式,以及一些公共样式*/
+
+html,body,ul,ol,li,header,h1,h2,dl,dt,dd,img,p,form{margin: 0;padding: 0;}
+html,body{width: 100%;height: 100%;}
+img{display: block;border:0;}
+li{list-style: none;}
+#body1 a{text-decoration: none;color: #000;}
+em{font-style: normal;}
+i{font-style: normal;}
+
+/*头部的样式*/
+header .nav-box{
+	width: 100%;
+	background: #f8f8f8;
+}
+.nav-box .nav{
+	width: 1200px;
+	overflow: hidden;
+	margin:0 auto;
+	position: relative;
+}
+/*导航左边*/
+.nav .nav-left{
+	float: left;
+	overflow:hidden;
+}
+.nav-left li{
+	/*margin-top: 10px;*/
+	float: left;
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	/*margin-right: 20px;*/
+	text-align: left;
+}
+.nav-left li a,.nav-right li a{
+	font-size: 12px;
+	color:#787878;
+}
+/*导航右边*/
+.nav .nav-right{
+	float: right;
+	overflow: hidden;
+	margin-right: 70px;
+}
+.nav-right li{
+	float: left;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+}
+.nav .shopping-car{
+	position: absolute;
+	right: 0px;
+	top: 0;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	color:#787878;
+}
+/*鼠标悬停效果*/
+.nav a:hover{
+	color: #000;
+	text-decoration: none;
+}
+/*主体部分*/
+#main{
+	width: 100%;
+	background: #fff;
+}
+#main .header{
+	width: 1200px;
+	margin:0 auto;
+	padding: 20px 0;
+	/*margin-bottom: 20px;*/
+	overflow: hidden;
+}
+#main .header .logo{
+	float: left;
+	overflow: hidden;
+}
+#main .header .logo img{
+	width:200px;
+}
+#main .header .right{
+	float: right;
+	width: 800px;
+}
+.header .right ul li{
+	float: left;
+}
+.header .right ul li a{
+	display: block;
+	height: 34px;
+	line-height: 34px;
+	padding: 0 15px;
+	font-size: 14px;
+	color: #000;
+}
+#main .header .right ul li a:hover{
+	color: #098ad2;
+	text-decoration: none;
+}
+#main .header .right ul li a:hover .hover-box{
+	display: block;
+}
+.right form{
+	float: right;
+	position: relative;
+	overflow: hidden;
+}
+.right form #search{
+	display: block;
+	padding-left: 10px;
+	width: 240px;
+	height: 32px;
+}
+.right form .search-icon{
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	right: 0;
+	top:0;
+}
+
+/*首页的底部部分*/
+#footer{
+	width: 1230px;
+	margin:0 auto;
+}
+#footer .ft-top ul li{
+	float: left;
+	width: 304px;
+	height: 130px;
+	line-height: 130px;
+	text-align: center;
+	text-indent: 40px;
+}
+#footer .ft-top ul li:nth-of-type(1){
+	background: url(../images/bg1.png) no-repeat left 74px top 46px;
+}
+#footer .ft-top ul li:nth-of-type(2){
+	background: url(../images/bg2.png) no-repeat left 60px top 46px;
+}
+#footer .ft-top ul li:nth-of-type(3){
+	background: url(../images/bg3.png) no-repeat left 50px top 46px;
+}
+#footer .ft-top ul li:nth-of-type(4){
+	background: url(../images/bg4.png) no-repeat left 60px top 46px;
+}
+#footer .ft-middle{
+	padding: 54px 44px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+#footer .ft-middle dl{
+	float: left;
+	width: 166px;
+	text-align: left;
+	font-size: 12px;
+	
+}
+#footer .ft-middle dt{
+	font-size: 16px;
+	/*font-weight: bold;*/
+}
+#footer .ft-middle dd a{
+	display: block;
+	height: 44px;
+	line-height: 44px;
+	color:#999999;
+}
+#footer .ft-middle dd a:hover{
+	color: #f00;
+}
+#footer .ft-middle .contactInfo{
+	float: right;
+	margin-right: 50px;
+}
+#footer .ft-middle .contactInfo p{
+	font-size: 22px;
+	font-weight: bold;
+	color: #0086d1;
+	margin-bottom: 20px;
+}
+#footer .ft-middle .contactInfo span{
+	font-size: 12px;
+	color: #999999;
+}
+#footer .ft-bottom{
+	padding: 20px 0;
+}
+#footer .ft-bottom p{
+	text-align: center;
+	font-size: 12px;
+	color:#999999;
+	line-height: 18px;
+}
+#footer .ft-bottom p a{
+	color: #999999;
+}
+#footer .ft-bottom .ft-nav a{
+	color: #000;
+} 
+
+/*最后添加的hover效果*/
+.hover-box{
+	width: 1250px;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	z-index: 999;
+	overflow: hidden;
+	padding:0 6px;
+	display: none;
+}
+.hover-nav{
+	width: 200px;
+	height: 200px;
+	/*position: absolute;*/
+	float: left;
+	margin-top: 40px;
+}
+.nav-img-box{
+	border-right: 1px solid #ccc;
+}
+.hover-nav img{
+	height: 136px;
+	margin-left: 40px;
+}
+.hover-nav p,.hover-nav span{
+	text-align: center;
+	color: #000;
+}
+.hover-nav span{
+	display: block;
+	color: #f00;
+}

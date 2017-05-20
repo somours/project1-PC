@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<link rel="stylesheet" href="../plugin/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/cart.css">
+	<script src="../lib/jquery-1.12.4.min.js"></script>
+	<script src="../plugin/jquery.cookie.js"></script>
+	<script src="../js/cart.js"></script>
+</head>
+<body id="body1">
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<ul class="nav-left">
+					<li><a href="#">中兴校园</a></li>
+					<li><a href="#">手机版</a></li>
+				</ul>
+				<ul class="nav-right">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+				<div class="shopping-car"><a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color: #3E82FF;margin-right: 6px;"></span>购物车</a></div>
+			</div>
+		</div>
+	</header>
+	<div class="cart-box">
+		<div class="cart-nav">
+			<ul>
+				<li><img src="../images/cart-1.jpg" alt=""></li>
+			</ul>
+		</div>
+		<div class="product-box">
+			<div class="product-head">
+				<ul>
+					<li><input type="checkbox" id="all"><label for="all">全选</label></li>
+					<li>商品名称</li>
+					<li>成交价</li>
+					<li>数量</li>
+					<li>小计</li>
+					<li>操作</li>
+				</ul>
+			</div>
+			<div class="product-info">
+				<ul>
+					<li><input type="checkbox" class="selects" style="margin-left:-30px;"></li>
+					<li>
+						<div class="productId">
+							<div class="imgbox">
+								<img src="../images/datails (1).jpg" alt="">
+							</div>
+							<div class="description">描述</div>
+						</div>
+					</li>
+					<li><div class="price">558.0</div></li>
+					<li class="amount">
+						<span class="reduces">-</span>
+						<input type="text" id="amount">
+						<span class="adds">+</span>
+					</li>
+					<li><div class="subtotal">1698</div></li>
+					<li><div class="handle"><a href="javascript:void(0)" class="dele">删除</a></div></li>
+				</ul>
+			</div>
+			<ul class="moban2" style="display: none;">
+					<li><input type="checkbox" class="selects" style="margin-left:-30px;"></li>
+					<li>
+						<div class="productId">
+							<div class="imgbox">
+								<img src="../images/datails (1).jpg" alt="" class="moban2-src">
+							</div>
+							<div class="description">描述</div>
+						</div>
+					</li>
+					<li><div class="price">558.0</div></li>
+					<li class="amount">
+						<span class="reduces">-</span>
+						<input type="text" name="amount">
+						<span class="adds">+</span>
+					</li>
+					<li><div class="subtotal">1698</div></li>
+					<li><div class="handle"><a href="#" class="dele">删除</a></div></li>
+					<li style="display: none;" class="productid">id</li>
+				</ul>
+					<div class="product-foot">
+				<ul>
+					<li><input type="checkbox" id="del-all"><label for="del-all">全选</label></li>
+					<li><div><a href="#" class="del-all">删除选中的商品</a></div></li>
+					<li></li>
+					<li><div class="total">合计:0.0</div></li>
+					<li><div></div></li>
+					<li><div><a href="#" id="result">去结算</a></div></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="ft-top">
+			<ul>
+				<li>7天退货保障</li>
+				<li>15天换货承诺</li>
+				<li>150元起全场免运费</li>
+				<li>全国售后服务点</li>
+			</ul>
+		</div>
+		<div class="ft-middle">
+			<dl>
+				<dt><a href="#">关注我们</a></dt>
+				<dd><a href="#">中兴社区</a></dd>
+				<dd><a href="#">官方微信</a></dd>
+				<dd><a href="#">新浪微博</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">帮助中心</a></dt>
+				<dd><a href="#">支付方式</a></dd>
+				<dd><a href="#">购物指南</a></dd>
+				<dd><a href="#">配送指南</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">售后服务</a></dt>
+				<dd><a href="#">退换货流程</a></dd>
+				<dd><a href="#">售后网点</a></dd>
+				<dd><a href="#">退换货政策</a></dd>
+				<dd><a href="#">保修政策</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">关于商城</a></dt>
+				<dd><a href="#">联系我们</a></dd>
+				<dd><a href="#">商城简介</a></dd>
+				<dd><a href="#">礼品团购</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<div class="contactInfo">
+				<p>400-800-9999</p>
+				<span>周一到周日 8:30-20:30 (全面无休)</span>
+			</div>
+		</div>
+		<div class="ft-bottom">
+			<p class="ft-nav">
+				<a href="#">中兴社区 |</a>
+				<a href="#">中兴通讯 |</a>
+				<a href="#">汇天地 |</a>
+				<a href="#">中兴云服务|</a>
+				<a href="#">中兴手机</a>
+				<!-- <a href="#"></a> -->
+			</p>
+			<p><a href="#">服务协议 </a>| ©2014 - 2017  深圳市中兴智谷科技有限公司版权所有，并保留所有权利  
+			</p>
+			<p>增值电信业务经营许可证：粤B2-20160352 | ICP备案证书号 : <a href="#">粤ICP备16018970号 </a></p>
+		</div>
+	</div>
+</body>
+</html>

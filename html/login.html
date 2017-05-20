@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<script src="../lib/jquery-1.12.4.min.js"></script>
+	<script src="../plugin/jquery.cookie.js"></script>
+</head>
+<body id="body1">
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<ul class="nav-left">
+					<li><a href="../index.html">中兴校园</a></li>
+					<li><a href="#">手机版</a></li>
+				</ul>
+				<ul class="nav-right">
+					<li><a href="#">登录</a></li>
+					<li><a href="register.html">注册</a></li>
+				</ul>
+				<div class="shopping-car"><a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color: #3E82FF;margin-right: 6px;"></span>购物车</a></div>
+			</div>
+		</div>
+	</header>
+	<div class="content">
+		<div class="pic"><a href="#"><img src="../images/login1.jpg" alt=""></a></div>
+		<h2>欢迎登陆</h2>
+		<form action="#">
+			<ul class="layout1">
+				<li><input type="text" placeholder="手机号" id="username"></li>
+				<li><input type="password" placeholder="密码" id="password"></li>
+				<li><input type="text" placeholder="验证码" id="authCode">
+				<em id="codebox"></em></li>
+			</ul>
+			<span class="change">更换验证码</span>
+			<button id="login">登录</button>
+			<p class="fengexian"><em><img src="../images/login2.png" alt=""></em><span>其他方式登录</span><img src="../images/login2.png" alt=""></p>
+			<ul class="other-login">
+				<li><a href="#"><img src="../images/login-weixin.png"></a></li>
+				<li><a href="#"><img src="../images/login-weibo.png"></a></li>
+				<li><a href="#"><img src="../images/login-qq.png"></a></li>
+			</ul>
+			<p class="register"><a href="register.html" style="color:#0076b9;">立即注册</a><a href="#">忘记密码</a></p>
+		</form>
+	</div>
+	<div id="footer">
+		<div class="ft-top">
+			<ul>
+				<li>7天退货保障</li>
+				<li>15天换货承诺</li>
+				<li>150元起全场免运费</li>
+				<li>全国售后服务点</li>
+			</ul>
+		</div>
+		<div class="ft-middle">
+			<dl>
+				<dt><a href="#">关注我们</a></dt>
+				<dd><a href="#">中兴社区</a></dd>
+				<dd><a href="#">官方微信</a></dd>
+				<dd><a href="#">新浪微博</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">帮助中心</a></dt>
+				<dd><a href="#">支付方式</a></dd>
+				<dd><a href="#">购物指南</a></dd>
+				<dd><a href="#">配送指南</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">售后服务</a></dt>
+				<dd><a href="#">退换货流程</a></dd>
+				<dd><a href="#">售后网点</a></dd>
+				<dd><a href="#">退换货政策</a></dd>
+				<dd><a href="#">保修政策</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">关于商城</a></dt>
+				<dd><a href="#">联系我们</a></dd>
+				<dd><a href="#">商城简介</a></dd>
+				<dd><a href="#">礼品团购</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<div class="contactInfo">
+				<p>400-800-9999</p>
+				<span>周一到周日 8:30-20:30 (全面无休)</span>
+			</div>
+		</div>
+		<div class="ft-bottom">
+			<p class="ft-nav">
+				<a href="#">中兴社区 |</a>
+				<a href="#">中兴通讯 |</a>
+				<a href="#">汇天地 |</a>
+				<a href="#">中兴云服务|</a>
+				<a href="#">中兴手机</a>
+				<!-- <a href="#"></a> -->
+			</p>
+			<p><a href="#">服务协议 </a>| ©2014 - 2017  深圳市中兴智谷科技有限公司版权所有，并保留所有权利  
+			</p>
+			<p>增值电信业务经营许可证：粤B2-20160352 | ICP备案证书号 : <a href="#">粤ICP备16018970号 </a></p>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			//页面生成时产生一个随机验证码;
+			function yanzhengma(){
+				var code = gencode();
+				$("#codebox").text(code);
+			}
+			yanzhengma();
+			//点击更换验证码的时候重新生成一个验证码
+			$(".change").eq(0).click(function(){
+				yanzhengma();
+			});
+			//生成验证码的函数
+			function gencode(length){
+			if(typeof length === "undefined"){
+				length = 4;
+			}
+			var rand,count,code="";
+			count = 0;
+			while(count < length){
+				rand = (Math.floor(Math.random()*(122-48+1))+48);
+				if(rand>57 && rand<65 || rand>90 && rand<97){
+						continue;
+					}
+					code += String.fromCharCode(rand);
+					count++;
+				}
+				return code;
+			}
+			//验证用户名格式是否输入正确
+			$("#username").on("blur",function(){
+				var reg = /^1[34578]\d{9}$/;
+				var result = reg.test($("#username").val());
+				if(!result){
+					var content = "<div>请输入正确的手机号格式</div>";
+					$(content).insertAfter("#username");
+				}
+			});
+			//验证码再次输入获的焦点时清楚之前产生的兄弟节点
+			$("#authCode").on("focus",function(){
+				$(this).siblings().remove("div");
+			});
+			$("#username").on("focus",function(){
+				$(this).siblings().remove();
+			});
+			//验证码的输入是否一致
+			$("#authCode").on("blur",function(){
+				var authCode = $("#authCode").val();
+				var code = $("#codebox").text();
+				if(authCode.toUpperCase() !== code.toUpperCase()){
+					// console.log("验证码输入不一致");
+					var html = "<div>验证码输入不一致</div>";
+					$(html).insertAfter("#codebox");
+				}else{//验证码输入一致后点击才会有效
+					$("#login").on("click",function(e){
+						e.preventDefault();
+						$(this).next().empty();
+						$.ajax({
+							url:"login.php",
+							type: "get",
+							dataType: "json",
+							/*data: {
+								username: $("#username").val(),
+								password: $("#password").val()
+							},*/
+							success: function(data){
+								var flag = false;//判断用户名和密码是否正确
+								console.log(data);
+								var username = $("#username").val();
+								var password = $("#password").val();
+								data.forEach(function(curr){
+									if(curr.username == username && curr.password == password){
+										// console.log("denglu成功");
+										$(".nav-right").eq(0).html("<li style='width:200px;'>欢迎你," + username + "</li>");
+										$.cookie.json = true;
+										$.cookie("user",{
+											name: username,
+											pass: password
+										},{
+											expires:7,
+											path:"/"
+										});
+										//当登录成功后自动跳转到首页
+										location = "../index.html";
+										flag = true;
+									}
+								});
+								if(flag){
+									return;
+								}else{
+									var html = "<p style='margin:10px;color:red'>用户名或者密码错误</p>";
+									// $("#login").insertBefore(html);
+									$(html).insertAfter("#login");
+									// console.log("555555555555");
+								}
+							}
+						});
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>

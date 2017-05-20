@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../plugin/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/register.css">
+	<script src="../lib/jquery-1.12.4.min.js"></script>
+</head>
+<body id="body1">
+	<header>
+		<div class="nav-box">
+			<div class="nav">
+				<ul class="nav-left">
+					<li><a href="../index.html">中兴校园</a></li>
+					<li><a href="#">手机版</a></li>
+				</ul>
+				<ul class="nav-right">
+					<li><a href="login.html">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+				<div class="shopping-car"><a href="#"><span class="glyphicon glyphicon-shopping-cart" style="color: #3E82FF;margin-right: 6px;"></span>购物车</a></div>
+			</div>
+		</div>
+	</header>
+	<div class="content">
+		<div class="pic"><a href="#"><img src="../images/login1.jpg" alt=""></a></div>
+		<h2>欢迎注册</h2>
+		<form action="#">
+			<ul>
+				<li><input type="text" placeholder="请输入手机号" id="username"></li>
+				<li><input type="password" placeholder="输入6位及以上数字字母" id="passwords"></li>
+				<li><input type="password" placeholder="再次输入登录密码" disabled  id="again"></li>
+				<li><input type="text" placeholder="验证码" id="authCode"><span id="codebox"></span></li>
+			</ul>
+			<span class="change">更换验证码</span>
+			<button id="login">立即注册</button>
+			<p class="register"><a href="#">已有账号?</a><a href="login.html" style="color: #0076b9;">立即登录</a></p>
+		</form>
+	</div>
+	<div id="footer">
+		<div class="ft-top">
+			<ul>
+				<li>7天退货保障</li>
+				<li>15天换货承诺</li>
+				<li>150元起全场免运费</li>
+				<li>全国售后服务点</li>
+			</ul>
+		</div>
+		<div class="ft-middle">
+			<dl>
+				<dt><a href="#">关注我们</a></dt>
+				<dd><a href="#">中兴社区</a></dd>
+				<dd><a href="#">官方微信</a></dd>
+				<dd><a href="#">新浪微博</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">帮助中心</a></dt>
+				<dd><a href="#">支付方式</a></dd>
+				<dd><a href="#">购物指南</a></dd>
+				<dd><a href="#">配送指南</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">售后服务</a></dt>
+				<dd><a href="#">退换货流程</a></dd>
+				<dd><a href="#">售后网点</a></dd>
+				<dd><a href="#">退换货政策</a></dd>
+				<dd><a href="#">保修政策</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="#">关于商城</a></dt>
+				<dd><a href="#">联系我们</a></dd>
+				<dd><a href="#">商城简介</a></dd>
+				<dd><a href="#">礼品团购</a></dd>
+				<dd><a href="#"></a></dd>
+			</dl>
+			<div class="contactInfo">
+				<p>400-800-9999</p>
+				<span>周一到周日 8:30-20:30 (全面无休)</span>
+			</div>
+		</div>
+		<div class="ft-bottom">
+			<p class="ft-nav">
+				<a href="#">中兴社区 |</a>
+				<a href="#">中兴通讯 |</a>
+				<a href="#">汇天地 |</a>
+				<a href="#">中兴云服务|</a>
+				<a href="#">中兴手机</a>
+				<!-- <a href="#"></a> -->
+			</p>
+			<p><a href="#">服务协议 </a>| ©2014 - 2017  深圳市中兴智谷科技有限公司版权所有，并保留所有权利  
+			</p>
+			<p>增值电信业务经营许可证：粤B2-20160352 | ICP备案证书号 : <a href="#">粤ICP备16018970号 </a></p>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			//页面生成时产生一个随机验证码;
+			function yanzhengma(){
+				var code = gencode();
+				$("#codebox").text(code);
+			}
+			yanzhengma();
+			//点击更换验证码的时候重新生成一个验证码
+			$(".change").eq(0).click(function(){
+				yanzhengma();
+			});
+			//生成验证码的函数
+			function gencode(length){
+			if(typeof length === "undefined"){
+				length = 4;
+			}
+			var rand,count,code="";
+			count = 0;
+			while(count < length){
+				rand = (Math.floor(Math.random()*(122-48+1))+48);
+				if(rand>57 && rand<65 || rand>90 && rand<97){
+					continue;
+				}
+				code += String.fromCharCode(rand);
+				count++;
+			}
+			return code;
+		}
+
+	//给用户名的输入框添加失去焦点时验证用户名是否存在
+
+			$("#username").on("blur",function(){
+				var reg = /^1[34578]\d{9}$/;
+				var result = reg.test($("#username").val());
+				console.log(result);
+				if(result){
+					$.ajax({
+						url: "register.php",
+						type: "get",
+						dataType: "json",
+						data: {
+							username: $("#username").val(),
+							action: "select"
+						},
+						success: function(data){
+							var username = $("#username").val();
+							data.forEach(function(curr){
+								var datas = curr.username;
+								if(datas == username){
+									var html = "<div>此用户名已被注册</div>";
+									$(html).insertAfter("#username");
+									return;
+								}
+							});
+						}
+					});
+				}else{
+					var content = "<div>请输入正确的手机号</div>";
+					$(content).insertAfter("#username");
+				}
+			});
+	// 给密码框进行正则表达式验证
+			$("#passwords").on("blur",function(){
+				var pass = $("#passwords").val();
+				//^[a-zA-Z]\w{5,17}$(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)
+				var reg = /[a-zA-Z0-9]{6,}/;//6位以上的数字或字母
+				var result = reg.test(pass);
+				if(!result){
+					// console.log("55555");
+					var html = "<div>密码输入不正确<div/>";
+					$(html).insertAfter("#passwords");
+					// $("#again").attr("disabled");
+				}else{
+					$("#again").removeAttr("disabled");
+				}
+			});
+			//两个密码框及名字框及验证码框再次输入获的焦点时清楚之前产生的兄弟节点
+			$("#username").on("focus",function(){
+				$(this).siblings().remove();
+			});
+			$("#passwords").on("focus",function(){
+				$(this).siblings().remove();
+			});
+			$("#again").on("focus",function(){
+				$(this).siblings().remove();
+			});
+			$("#authCode").on("focus",function(){
+				$(this).siblings().remove("div");
+			});
+			//密码确认时看两次是否一致
+			$("#again").on("blur",function(){
+				var pass = $("#passwords").val();
+				var again = $("#again").val();
+				// console.log(pass);
+				// console.log(again);
+				if(pass !== again){
+					var html = "<div>两次密码不一致,请重新输入</div>";
+					$(html).insertAfter("#again");
+				}
+			});
+			//验证码的输入是否一致,只有当验证码输入正确时,点击事件才有效
+			$("#authCode").on("blur",function(){
+				var authCode = $("#authCode").val();
+				var code = $("#codebox").text();
+				if(authCode.toUpperCase() !== code.toUpperCase()){
+					var html = "<div>验证码输入不一致</div>";
+					$(html).insertAfter("#codebox");
+				}else{
+				//点击立即注册向数据库中添加数据;
+					$("#login").on("click",function(e){
+						e.preventDefault();
+						$.ajax({
+							url: "register.php",
+							type: "get",
+							dataType: "json",
+							data: {
+								username: $("#username").val(),
+								password: $("#passwords").val(),
+								phone: $("#username").val(),
+								action: "add"
+							},
+							success: function(data){
+								// console.log(data);
+								//注册成功自动跳转到登录界面
+								location = "login.html";
+							}
+						});
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>

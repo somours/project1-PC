@@ -1,0 +1,97 @@
+.cart-box {
+	padding:20px 24px;
+	background: #f5f5f5;
+}
+.cart-box .cart-nav{
+	padding-bottom: 30px;
+	background: #fff;
+}
+
+/*购物车的主体*/
+.product-box ul{
+	overflow: hidden;
+}
+.product-box .product-head ul li{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+}
+#body1 .product-box ul li:nth-of-type(1){
+	width: 148px;
+	text-align: center;
+}
+.product-box ul li:nth-of-type(2){
+	width: 498px;
+	overflow: hidden;
+}
+.product-box ul li:nth-of-type(3){
+	width: 74px;
+}
+#body1 .product-box ul li:nth-of-type(4){
+	width: 224px;
+	text-align: center;
+}
+.product-box ul li:nth-of-type(5){
+	width: 116px;
+}
+/*购物车情的详信息*/
+.product-box .product-info ul{
+	padding:16px 0;
+	background: #fff;
+	border-bottom:2px solid #efefef;
+}
+.product-box .product-info ul li{
+	float: left;
+}
+.product-info .imgbox{
+	width: 96px;
+	height: 96px;
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	border:1px solid #ccc;
+}
+.product-info .imgbox img{
+	width: 90px;
+}
+.product-info .description{
+	float: left;
+	padding:10px 0;
+	text-align: left;
+	margin:20px 0;
+}
+.product-info .amount{
+	padding:30px 0;
+	padding-left: 48px
+}
+.product-info .amount span,.product-info .amount input{
+	display: inline-block;
+	width: 32px;
+	height: 28px;
+	line-height: 28px;
+	border:1px solid #ccc;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+.product-info .price,.product-info .subtotal,.product-info .handle{
+	padding:30px 0;
+}
+/*商品的结算*/
+.product-foot ul{
+	padding:20px 0;
+}
+.product-foot ul li{
+	float: left;
+}
+.product-foot #result{
+	display: block;
+	width:156px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background: #fc6628;
+	border-radius: 5px;
+	color: #fff;
+}

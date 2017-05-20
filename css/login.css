@@ -1,0 +1,103 @@
+/*登录页面的样式*/
+.content{
+	padding: 42px 170px;
+	overflow: hidden;
+	background: #f8f8f8;
+}
+.content .pic{
+	border-right: 1px solid #eeeeee;	
+	float: left;
+	width: 410px;
+	box-sizing: border-box;
+}
+.content .pic img{
+	width: 334px;
+	margin-top: 50px;
+
+}
+.content h2{
+	font-size: 26px;
+	text-indent: 200px;
+	margin-bottom: 24px;
+	font-weight: normal;
+}
+/*表单部分*/
+.content form{
+	padding: 0 74px;
+	padding-left: 0;
+	float: right;
+}
+
+.content form ul li{
+	margin-bottom: 14px;
+} 
+.content form input{
+	text-indent: 14px;
+	width: 330px;
+	height: 38px;
+	border: 1px solid #ccc;
+}
+.content form .change{
+	display: block;
+	padding-bottom: 13px;
+	margin-left: 260px;
+	font-size: 12px;
+	cursor: pointer;
+	color: #767676;
+}
+.content form #login{
+	display: block;
+	width: 332px;
+	height: 40px;
+	background: #0076b9;
+	color: #fff;
+	border-radius: 5px;
+	margin-bottom: 24px;
+}
+.content form .fengexian{
+	padding-left: 5px;
+	box-sizing: border-box;
+	width: 332px;
+	height: 26px;
+	/*line-height: 26px;*/
+}
+.content form .fengexian img{
+	display: inline-block;
+	vertical-align: middle;
+}
+.content form .other-login{
+	margin-top: 20px;
+	margin-left: 80px;
+	overflow: hidden;
+}
+.content form .other-login li{
+	float: left;
+	margin-right: 28px;
+}
+
+.content form .register{
+	text-align: center;
+}
+.content form .register a{
+	padding: 0 15px;
+	font-size: 12px;
+	color: #767676;
+}
+
+/*写js代码时加载的样式*/
+.content .layout1 li{
+	position: relative;
+}
+#body1 #codebox{
+	display: block;
+	width: 60px;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 20px;
+	position: absolute;
+	right: 10px;
+	top: 6px;
+	background: #ccc;
+	color: #fff;
+}
